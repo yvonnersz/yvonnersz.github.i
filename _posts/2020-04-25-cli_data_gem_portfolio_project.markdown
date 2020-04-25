@@ -98,21 +98,21 @@ end
 Ugly, right?  After intently reviewing the worlds-best-restaurants gem, I realized that I could condense my code even further by having the code automatically instantiate the cities by finding the "href" attribute. I thought this was genius! Here's a snippet of the code that does EXACTLY the same thing, but is more concise and abstract.
 
 ```
-    def self.new_from_index_page(city)
-      self.new(
-        city.css(".spot_list__spot__name").text,
-        "https://www.japan-guide.com#{city.css(".spot_list__spot__main_info a").attribute("href").value}",
-        city.css("div.spot_list__spot__desc").text
-        )
-    end
+def self.new_from_index_page(city)
+	self.new(
+		city.css(".spot_list__spot__name").text,
+		"https://www.japan-guide.com#{city.css(".spot_list__spot__main_info a").attribute("href").value}",
+		city.css("div.spot_list__spot__desc").text
+		)
+end
 
-    def initialize(name=nil, url=nil, description=nil)
-      @name = name
-      @url = url
-      @description = description
-      @@all << self
-    end
-		```
+def initialize(name=nil, url=nil, description=nil)
+	@name = name
+	@url = url
+	@description = description
+	@@all << self
+end
+```
 
 
 ## Step 4: Debugging
@@ -126,17 +126,17 @@ As soon as I finished refactoring my code, I worked on debugging it. Thinking ba
 Certain sections did not have hours posted which ruined the index consistency. To make the code consistent to the index, I had to rewrite that particular method so that the information matched up with the website. After a couple hours, I  was able to fix the flaw in my code and finally got every spot to match up with the hours. Here was the finished code that wrapped everything up:
 
 ```
-      doc.css(".spot_list__spot__main_info").collect do |bio|
-          if bio.text.include?("Open") || bio.text.include?("Hours:")
-            schedule = bio.css(".spot_meta__text_wrap")
-            split_schedule = schedule.text.gsub(/(?<=[a-z])(?=[A-Z])/, "\n")
-            number_split_schedule = split_schedule.gsub(/(?<=[0-9])(?=[A-Z])/, "\n")
-            @schedule << paranthesis_split = number_split_schedule.gsub(/(?<=[)])(?=[A-Z])/, "\n")
-          else
-            no_schedule = "We could not find any information on shop hours."
-            @schedule << no_schedule
-          end
-        end
+doc.css(".spot_list__spot__main_info").collect do |bio|
+		if bio.text.include?("Open") || bio.text.include?("Hours:")
+			schedule = bio.css(".spot_meta__text_wrap")
+			split_schedule = schedule.text.gsub(/(?<=[a-z])(?=[A-Z])/, "\n")
+			number_split_schedule = split_schedule.gsub(/(?<=[0-9])(?=[A-Z])/, "\n")
+			@schedule << paranthesis_split = number_split_schedule.gsub(/(?<=[)])(?=[A-Z])/, "\n")
+		else
+			no_schedule = "We could not find any information on shop hours."
+			@schedule << no_schedule
+		end
+	end
 ```
 
 Looks daunting but that is because this snippet of code also fixes some spacing issues. This was done so that it would be easier to read the shop hours and description.
