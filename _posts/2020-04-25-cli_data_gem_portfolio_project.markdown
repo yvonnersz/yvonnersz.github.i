@@ -8,7 +8,7 @@ permalink:  cli_data_gem_portfolio_project
 
 First portfolio project down! Coming from someone who has no background in coding, when I first started the CLI project, I had a mini panic attack thinking that I did not have the knowledge to be able to complete the project. I went through many frustrating moments of my code not working the way I want it to, but today is the sixth day of coding my project and I can finally say that my code works! I find that by coding a little bit every day made the daunting task more bearable. FlatIron also have useful references and resources that could be used to look back to when you are stuck.
 
-**Project Requirements**
+## Project Requirements
 1. Provide a CLI
 2. Your CLI application must provide access to data from a web page.
 3. The data provided must go at least one level deep. A "level" is where a user can make a choice and then get detailed information about their choice.
