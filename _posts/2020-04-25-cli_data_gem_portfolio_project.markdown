@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "CLI Data Gem Portfolio Project"
-date:       2020-04-25 11:43:19 +0000
+date:       2020-04-25 07:43:20 -0400
 permalink:  cli_data_gem_portfolio_project
 ---
 
@@ -120,8 +120,8 @@ The most exciting(?) part: debugging.
 
 As soon as I finished refactoring my code, I worked on debugging it. Thinking back, I probably should have worked on debugging it AFTER I got my code working to avoid wasted time. Most of the cities that the user was interested in aligned with the information on the website... until the last two cities! I had to find out what was making my data inconsistent. After fumbling around for a bit, I realized that not every section on the webpage had hours listed, as seen in the images below:
 
-![](https://ibb.co/MNj77rR)
-![](https://ibb.co/qDbgCYx)
+![https://ibb.co/MNj77rR](https://ibb.co/MNj77rR)
+![https://ibb.co/qDbgCYx](https://ibb.co/qDbgCYx)
 
 Certain sections did not have hours posted which ruined the index consistency. To make the code consistent to the index, I had to rewrite that particular method so that the information matched up with the website. After a couple hours, I  was able to fix the flaw in my code and finally got every spot to match up with the hours. Here was the finished code that wrapped everything up:
 
