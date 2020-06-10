@@ -125,6 +125,15 @@ It then finally clicked to me that when I was testing the shotgun server and cre
 @raw_material.save
 ```
 
+## Stretch Goals
+
+If time permits, I would like to eventually add the following features to my web application:
+
+1. Team leads could alter each other's content and regular users would not have that feature.
+2. Decrementing or incrementing amounts for raw materials.
+3. Possibly have a user showpage and their submitted raw materials.
+3. Not really a feature, but I would also like to tinker with the CSS layout.
+
 ## Finished Project
 If anyone is curious about the application, the finished Sinatra project can be found at the following link: https://github.com/yvonnersz/kanban.
 
